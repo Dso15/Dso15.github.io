@@ -1,29 +1,28 @@
 <html>
     <head>
+        <title>User Input validate</title>
         <link rel="stylesheet" type="text/css" href="../css/easy2see.css" />
-        <script type="text/javascript" src="../javascript/restrict.js"></script>
+        <script src="../javascript/restrict1.js" defer></script>
     </head>
 
     <body>
-        
-        <!-- user input  -->
-        <form id="form">
 
+        <form id="form">
             <!-- username -->
-            <label for="user">Username: </label>
-            <input id="user" type="text" name="one" onfocusout="check_empty()" maxlength="10">
-            
-            <!-- username error -->
-            <div id="userError">Username not correct</div>
-            
-            <!-- user password -->
+            <label for="username">Username: </label>
+            <input id="username" type="text" name="username" onfocusout="validate(username)" maxlength="10">
+            <p id="errUser"></p>
+
+            <!-- password -->
             <label for="password">Password: </label>
-            <input id="password" type="password" name="two" minlength="8" maxlength="12">
+            <input type="password" id="psw" name="psw" minlength="8" maxlength="12" pattern=
+            "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
             
-          </form> 
+            <p id="errPass"></p>
+        </form>
+        
     </body>
 
+
+
 </html>
-
-
-
