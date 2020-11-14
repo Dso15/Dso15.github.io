@@ -1,80 +1,29 @@
-<!DOCTYPE html> 
 <html>
-	<head>
-		<meta charset="utf-8">
-		<link rel="stylesheet" href="../css/onboundStyle.css">
-	</head>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../css/easy2see.css" />
+        <script type="text/javascript" src="../javascript/restrict.js"></script>
+    </head>
 
-	<body>
-		<div class='container'>
-			<!-- get number and bounds from user -->
-			<label for='number'>Number: </label>
-			<input type="number" id="fnum" name='number' onkeyup=myFunction() required><br /><br />
-			<label for='minbound'>Min bound: </label>
-			<input type="number" id="fmin" name='minbound' onkeyup = myFunction() required><br /><br />
-			<label for='maxbound'>Max bound: </label>
-			<input type="number" id="fmax" name='maxbound' onkeyup=myFunction() required><br /><br />
-			
-			<!-- show number and bounds on screen -->
-			<p id="msg"></p>
-			<p id="msg1"></p>
-			<p id="msg2"></p>
-			<h1 id="msg3"></h1>
-		</div>
-		
+    <body>
+        
+        <!-- user input  -->
+        <form id="form">
 
-		<script>			
-			function cleanScreen() {
-				const body = document.querySelector('body');
-				var number = document.getElementById('fnum').value = '';
-				var min = document.getElementById('fmin').value = '';
-				var max = document.getElementById('fmax').value = '';
-				myFunction();
-			}
+            <!-- username -->
+            <label for="user">Username: </label>
+            <input id="user" type="text" name="one" onfocusout="check_empty()" maxlength="10">
+            
+            <!-- username error -->
+            <div id="userError">Username not correct</div>
+            
+            <!-- user password -->
+            <label for="password">Password: </label>
+            <input id="password" type="password" name="two" minlength="8" maxlength="12">
+            
+          </form> 
+    </body>
 
-			function myFunction() {
-				//get input from user
-				const body = document.querySelector('body');
-				var number = document.getElementById('fnum').value;
-				var min = document.getElementById('fmin').value;
-				var max = document.getElementById('fmax').value;
-
-				//show input on screen
-				document.getElementById('msg').innerHTML = 'Number: ' + number;
-				document.getElementById('msg1').innerHTML = 'Min Bound: ' + min;
-				document.getElementById('msg2').innerHTML = 'Max Bound: ' + max;
-
-				if ((!number == '') && (!min == '') && (!max == '')) {
-					//convert input to number
-					parseInt(number);
-					parseInt(min);
-					parseInt(max);
-
-					//check if number is in bounds (show true) or equal to bounds is (show false)
-					if ((number === min) || (number === max)) {
-						document.getElementById('msg3').innerHTML = 'False';
-						body.style.backgroundColor = 'red';
-						setTimeout(cleanScreen, 3000);
-					}
-					else if ((number < max) && (number > min)) {
-						document.getElementById('msg3').innerHTML = 'True';
-						body.style.backgroundColor = 'green';
-						setTimeout(cleanScreen, 3000);
-					} else {
-						document.getElementById('msg3').innerHTML = 'False';
-						body.style.backgroundColor = 'red';	
-						setTimeout(cleanScreen, 3000);			
-					}
-
-				}	else {
-					//if input is not empty change body back to start possition 
-					body.style.backgroundColor = 'violet';
-					document.getElementById('msg3').innerHTML = '';
-				}
-				
-
-			}
-			
-		</script>
-	</body>
 </html>
+
+
+
