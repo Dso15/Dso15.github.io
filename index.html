@@ -1,28 +1,49 @@
+<!DOCTYPE html> 
 <html>
     <head>
-        <title>User Input validate</title>
-        <link rel="stylesheet" type="text/css" href="../css/easy2see.css" />
-        <script src="../javascript/restrict1.js" defer></script>
+        <title>
+            Hello!
+        </title>
+        <style>
+            body
+            {
+                background-color: gray;
+            }
+            table
+            {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            td
+            {
+                border: 1px solid black;
+                padding: 5px;
+            }
+            th
+            {
+                background-color: blue;
+            }
+        </style>
+        <script>
+            function greet()
+            {
+                let name = document.querySelector('#name').value;
+                if (name === '')
+                {
+                    name = 'world';
+                }
+                document.querySelector('#result').innerHTML = 'Hello, ' + name + '!';
+            }
+        </script>
     </head>
-
     <body>
-
-        <form id="form">
-            <!-- username -->
-            <label for="username">Username: </label>
-            <input id="username" type="text" name="username" onfocusout="validate(username)" maxlength="10">
-            <p id="errUser"></p>
-
-            <!-- password -->
-            <label for="password">Password: </label>
-            <input type="password" id="psw" name="psw" minlength="8" maxlength="12" pattern=
-            "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-            
-            <p id="errPass"></p>
+        <form onsubmit="greet(); return false;">
+            <input  type="text" id="name">
+            <input type="submit">
         </form>
-        
+        <div id="result">
+            Hello!
+        </div>
     </body>
-
-
-
 </html>
